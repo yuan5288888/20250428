@@ -41,8 +41,11 @@ function drawOverlayGraphics() {
       // 從 capture 中取得相對應位置的顏色
       let col = capture.get(x, y);
 
+      // 計算灰階顏色
+      let gray = (red(col) + green(col) + blue(col)) / 3;
+
       // 繪製圓形
-      overlayGraphics.fill(col);
+      overlayGraphics.fill(gray); // 使用灰階顏色
       overlayGraphics.noStroke();
       overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 圓的中心偏移 10，大小為 15
     }
